@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_margin"
+    android:orientation="vertical"
+    tools:context=".MovieActivity">
+
+    <ImageView
+        android:id="@+id/iv_img_movie"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/iv_img_movie"
+        android:text="@string/title"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/iv_img_movie"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/iv_img_movie"
+        android:layout_below="@id/tv_title"
+        android:text="@string/empty"
+        android:layout_toEndOf="@+id/iv_img_movie" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/tv_movie_title"
+        android:text="@string/date"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/iv_img_movie"
+        android:layout_toEndOf="@id/iv_img_movie"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_movie_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_toRightOf="@id/iv_img_movie"
+        android:layout_below="@id/tv_date"
+        android:text="@string/empty"
+        android:layout_marginLeft="40dp"
+        android:layout_toEndOf="@id/iv_img_movie" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/iv_img_movie"
+        android:text="@string/description"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_movie_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/tv_description"
+        android:text="@string/empty"/>
+
+</RelativeLayout>
