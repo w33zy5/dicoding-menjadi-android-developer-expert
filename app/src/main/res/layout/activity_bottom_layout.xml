@@ -8,7 +8,7 @@
     tools:context=".BottomLayoutActivity">
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/container_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"

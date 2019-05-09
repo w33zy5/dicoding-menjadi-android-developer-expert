@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MOVIE_ITEM", "intent_setPhoto: " + dataPhoto.getResourceId(position, -1));
                 moveWithObjectIntent.putExtra(MovieActivity.MOVIE_PARCELABLE, movie);
                 startActivity(moveWithObjectIntent);
-                /*Toast.makeText(MainActivity.this, movies.get(position).getTitle(), Toast.LENGTH_SHORT).show();*/
+Toast.makeText(MainActivity.this, movies.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
