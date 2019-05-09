@@ -14,7 +14,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:scaleType="fitXY"
-        android:layout_marginStart="10dp" />
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/tv_lv_movie_title"
@@ -24,7 +25,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/iv_lv_img_movie"
-        android:layout_below="@id/tv_title"
         android:text="@string/empty"
         android:maxLines="1"
         android:layout_toEndOf="@id/iv_lv_img_movie"
