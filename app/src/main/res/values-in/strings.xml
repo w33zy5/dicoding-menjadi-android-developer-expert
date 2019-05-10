@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">My Movie App</string>
-    <string name="title">Movie Title</string>
-    <string name="tvshow_title">Tv Show Title</string>
-    <string name="empty">Empty</string>
-    <string name="description">Description</string>
-    <string name="release_date">Release Date</string>
+    <string name="title">Judul Film</string>
+    <string name="tvshow_title">Judul Acara Tv</string>
+    <string name="empty">Kosong</string>
+    <string name="description">Deskripsi</string>
+    <string name="release_date">Tanggal Rilis</string>
     <array name="data_Name">
         <item>A Star Is Born</item>
         <item>Aquaman</item>
@@ -368,11 +368,11 @@
         </item>
     </array>
 
-    <string name="title_activity_bottom_layout">Main Bottom Activity</string>
-    <string name="title_movie">Movie</string>
-    <string name="title_tvshow">Tv Show</string>
+    <string name="title_activity_bottom_layout">Activity Bawah</string>
+    <string name="title_movie">Film</string>
+    <string name="title_tvshow">Acara Tv</string>
 
-    <string name="todo">Image</string>
-    <string name="change_language_settings">Change Language Setting</string>
+    <string name="todo">Gambar</string>
+    <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
 
 </resources>
