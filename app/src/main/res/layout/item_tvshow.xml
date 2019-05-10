@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/iv_lv_img_movie"
+        android:id="@+id/iv_lv_img_tvshow"
         android:layout_width="100dp"
         android:layout_height="150dp"
         android:layout_marginLeft="10dp"
@@ -18,25 +18,25 @@
         android:contentDescription="@string/todo" />
 
     <TextView
-        android:id="@+id/tv_lv_movie_title"
+        android:id="@+id/tv_lv_tvshow_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/iv_lv_img_movie"
-        android:text="@string/empty"
+        android:layout_toEndOf="@id/iv_lv_img_tvshow"
+        android:layout_toRightOf="@id/iv_lv_img_tvshow"
         android:maxLines="1"
-        android:layout_toEndOf="@id/iv_lv_img_movie"
-        android:textStyle="bold"/>
+        android:text="@string/empty"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_lv_description"
+        android:id="@+id/tv_lv_tvshow_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_lv_img_movie"
-        android:layout_toEndOf="@id/iv_lv_img_movie"
-        android:layout_below="@id/tv_lv_movie_title"
+        android:layout_toRightOf="@id/iv_lv_img_tvshow"
+        android:layout_toEndOf="@id/iv_lv_img_tvshow"
+        android:layout_below="@id/tv_lv_tvshow_title"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="5dp"
@@ -44,12 +44,12 @@
         android:text="@string/empty"/>
 
     <TextView
-        android:id="@+id/release_date"
+        android:id="@+id/tvshow_release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_lv_img_movie"
-        android:layout_toEndOf="@id/iv_lv_img_movie"
-        android:layout_below="@id/tv_lv_description"
+        android:layout_toRightOf="@id/iv_lv_img_tvshow"
+        android:layout_toEndOf="@id/iv_lv_img_tvshow"
+        android:layout_below="@id/tv_lv_tvshow_description"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
@@ -57,12 +57,12 @@
         android:text="@string/release_date"/>
 
     <TextView
-        android:id="@+id/tv_lv_movie_release_date"
+        android:id="@+id/tv_lv_tvshow_release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_lv_img_movie"
-        android:layout_toEndOf="@id/iv_lv_img_movie"
-        android:layout_below="@id/release_date"
+        android:layout_toRightOf="@id/iv_lv_img_tvshow"
+        android:layout_toEndOf="@id/iv_lv_img_tvshow"
+        android:layout_below="@id/tvshow_release_date"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="5dp"

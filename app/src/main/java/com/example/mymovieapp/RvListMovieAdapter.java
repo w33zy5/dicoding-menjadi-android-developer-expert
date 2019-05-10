@@ -62,7 +62,7 @@ public class RvListMovieAdapter extends RecyclerView.Adapter<RvListMovieAdapter.
         CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             tvMovieTitle = itemView.findViewById(R.id.tv_lv_movie_title);
-            tvReleaseDate = itemView.findViewById(R.id.tv_lv_release_date);
+            tvReleaseDate = itemView.findViewById(R.id.tv_lv_movie_release_date);
             tvMovieDesc = itemView.findViewById(R.id.tv_lv_description);
             imgPhoto = itemView.findViewById(R.id.iv_lv_img_movie);
         }

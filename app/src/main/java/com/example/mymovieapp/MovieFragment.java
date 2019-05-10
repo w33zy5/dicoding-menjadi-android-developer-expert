@@ -82,9 +82,4 @@ public class MovieFragment extends Fragment {
         rvListMovieAdapter = new RvListMovieAdapter(getActivity());
         rvMovieCategory.setAdapter(rvListMovieAdapter);
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
 }

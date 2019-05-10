@@ -1,3 +1,4 @@
+/*
 package com.example.mymovieapp;
 
 import android.content.Context;
@@ -61,7 +62,7 @@ public class MovieAdapter extends BaseAdapter {
         ViewHolder(View view){
             txtMovieTitle = view.findViewById(R.id.tv_lv_movie_title);
             txtMovieDesc = view.findViewById(R.id.tv_lv_description);
-            txtReleaseDate = view.findViewById(R.id.tv_lv_release_date);
+            txtReleaseDate = view.findViewById(R.id.tv_lv_movie_release_date);
             imgPhoto = view.findViewById(R.id.iv_lv_img_movie);
         }
         void bind(Movie movie){
@@ -75,3 +76,4 @@ public class MovieAdapter extends BaseAdapter {
         }
     }
 }
+*/

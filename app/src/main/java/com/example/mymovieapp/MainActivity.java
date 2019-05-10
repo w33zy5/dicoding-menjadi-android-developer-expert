@@ -1,3 +1,4 @@
+/*
 package com.example.mymovieapp;
 
 import android.content.Intent;
@@ -78,3 +79,4 @@ Toast.makeText(MainActivity.this, movies.get(position).getTitle(), Toast.LENGTH_
         adapter.setMovies(movies);
     }
 }
+*/

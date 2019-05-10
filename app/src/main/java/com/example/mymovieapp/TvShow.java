@@ -1,46 +1,46 @@
 package com.example.mymovieapp;
 
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class TvShow implements Parcelable {
-    private String title;
-    private String description;
-    private String date;
-    private int photo;
+    private String tvshow_title;
+    private String tvshow_description;
+    private String tvshow_date;
+    private int tvshow_photo;
 
-    public String getTitle() {
-        return title;
+    public String getTvshow_title() {
+        return tvshow_title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTvshow_title(String tvshow_title) {
+        this.tvshow_title = tvshow_title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTvshow_description() {
+        return tvshow_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTvshow_description(String tvshow_description) {
+        this.tvshow_description = tvshow_description;
     }
 
-    public String getDate() {
-        return date;
+    public String getTvshow_date() {
+        return tvshow_date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setTvshow_date(String tvshow_date) {
+        this.tvshow_date = tvshow_date;
     }
 
-    public int getPhoto() {
-        return photo;
+    public int getTvshow_photo() {
+        return tvshow_photo;
     }
 
-    public void setPhoto(int photo) {
-        this.photo = photo;
+    public void setTvshow_photo(int tvshow_photo) {
+        this.tvshow_photo = tvshow_photo;
     }
-
 
     @Override
     public int describeContents() {
@@ -49,20 +49,20 @@ public class TvShow implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.title);
-        dest.writeString(this.description);
-        dest.writeString(this.date);
-        dest.writeInt(this.photo);
+        dest.writeString(this.tvshow_title);
+        dest.writeString(this.tvshow_description);
+        dest.writeString(this.tvshow_date);
+        dest.writeInt(this.tvshow_photo);
     }
 
     public TvShow() {
     }
 
     protected TvShow(Parcel in) {
-        this.title = in.readString();
-        this.description = in.readString();
-        this.date = in.readString();
-        this.photo = in.readInt();
+        this.tvshow_title = in.readString();
+        this.tvshow_description = in.readString();
+        this.tvshow_date = in.readString();
+        this.tvshow_photo = in.readInt();
     }
 
     public static final Parcelable.Creator<TvShow> CREATOR = new Parcelable.Creator<TvShow>() {
