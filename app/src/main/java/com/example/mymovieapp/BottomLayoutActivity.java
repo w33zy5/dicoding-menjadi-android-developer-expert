@@ -41,7 +41,7 @@ public class BottomLayoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_layout);
-        BottomNavigationView navView = findViewById(R.id.container_layout);
+        BottomNavigationView navView = findViewById(R.id.navigation);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

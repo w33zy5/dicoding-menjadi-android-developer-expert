@@ -80,7 +80,6 @@ public class MovieFragment extends Fragment {
     private void showRecyclerList() {
         rvMovieCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvListMovieAdapter = new RvListMovieAdapter(getActivity());
-        rvListMovieAdapter.setListMovie(movieList);
         rvMovieCategory.setAdapter(rvListMovieAdapter);
     }
 
