@@ -1,4 +1,4 @@
-package com.example.mymovieapp;
+package com.example.mymovieapp.model;
 
 
 import android.os.Parcel;

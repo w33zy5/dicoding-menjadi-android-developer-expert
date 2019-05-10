@@ -1,9 +1,7 @@
-package com.example.mymovieapp;
+package com.example.mymovieapp.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.util.ArrayList;
 
 public class Movie implements Parcelable {
 

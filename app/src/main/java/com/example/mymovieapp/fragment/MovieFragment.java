@@ -1,11 +1,9 @@
-package com.example.mymovieapp;
+package com.example.mymovieapp.fragment;
 
 
-import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.lang.reflect.Array;
+import com.example.mymovieapp.R;
+import com.example.mymovieapp.activity.MovieActivity;
+import com.example.mymovieapp.adapter.RvListMovieAdapter;
+import com.example.mymovieapp.listener.ItemClickSupport;
+import com.example.mymovieapp.model.Movie;
+
 import java.util.ArrayList;
 
 
@@ -81,5 +84,20 @@ public class MovieFragment extends Fragment {
         rvMovieCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvListMovieAdapter = new RvListMovieAdapter(getActivity());
         rvMovieCategory.setAdapter(rvListMovieAdapter);
+
+        ItemClickSupport.addTo(rvMovieCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Intent moveWithObjectIntent = new Intent(getActivity(), MovieActivity.class);
+                Movie movie = new Movie();
+                movie.setTitle(dataName[position]);
+                movie.setDescription(dataDescription[position]);
+                movie.setDate(dataReleaseDate[position]);
+                movie.setPhoto(dataPhoto.getResourceId(position, -1));
+                Log.d("MOVIE_ITEM", "intent_setPhoto: " + dataPhoto.getResourceId(position, -1));
+                moveWithObjectIntent.putExtra(MovieActivity.MOVIE_PARCELABLE, movie);
+                startActivity(moveWithObjectIntent);
+            }
+        });
     }
 }

@@ -1,11 +1,13 @@
-package com.example.mymovieapp;
+package com.example.mymovieapp.activity;
 
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.mymovieapp.R;
+import com.example.mymovieapp.model.Movie;
 
 public class MovieActivity extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class MovieActivity extends AppCompatActivity {
         String movieTitle = movie.getTitle();
         String movieDate = movie.getDate();
         String movieDesc = movie.getDescription();
-        int moviePhoto = 0 + movie.getPhoto();
+        int moviePhoto = movie.getPhoto();
         Log.d("MOVIE_ITEM", "intent_moviePhoto: " + moviePhoto);
         /*int moviePhoto = movie.getPhoto();
         Log.d("INTENT", "moviePhoto: " + moviePhoto);*/

@@ -1,6 +1,7 @@
-package com.example.mymovieapp;
+package com.example.mymovieapp.fragment;
 
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.mymovieapp.R;
+import com.example.mymovieapp.activity.MovieActivity;
+import com.example.mymovieapp.activity.TvShowActivity;
+import com.example.mymovieapp.adapter.RvListTvShowAdapter;
+import com.example.mymovieapp.listener.ItemClickSupport;
+import com.example.mymovieapp.model.TvShow;
 
 import java.util.ArrayList;
 
@@ -72,6 +80,20 @@ public class TvShowFragment extends Fragment {
         rvTvShowCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvListTvShowAdapter = new RvListTvShowAdapter(getActivity());
         rvTvShowCategory.setAdapter(rvListTvShowAdapter);
+
+        ItemClickSupport.addTo(rvTvShowCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Intent moveWithObjectIntent = new Intent(getActivity(), TvShowActivity.class);
+                TvShow tvShow = new TvShow();
+                tvShow.setTvshow_title(dataTvShowName[position]);
+                tvShow.setTvshow_date(dataTvShowReleaseDate[position]);
+                tvShow.setTvshow_description(dataTvShowDescription[position]);
+                tvShow.setTvshow_photo(dataTvShowPhoto.getResourceId(position, -1));
+                moveWithObjectIntent.putExtra(TvShowActivity.TVSHOW_PARCELABLE, tvShow);
+                startActivity(moveWithObjectIntent);
+            }
+        });
     }
 
 }

@@ -1,82 +1,110 @@
-/*
 package com.example.mymovieapp;
 
-import android.content.Intent;
-import android.content.res.TypedArray;
-import android.os.Debug;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.NonNull;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.view.MenuItem;
+import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.mymovieapp.fragment.MovieFragment;
+import com.example.mymovieapp.fragment.TvShowFragment;
 
 public class MainActivity extends AppCompatActivity {
+    String title;
+    final String STATE_TITLE = "state_string";
+    final String STATE_MODE = "state_mode";
+    int mode;
 
-    private String[] dataName;
-    private String[] dataDescription;
-    private String[] dataReleaseDate;
-    private TypedArray dataPhoto;
-    private MovieAdapter adapter;
-    private ArrayList<Movie> movies;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            Fragment fragment;
+            mode = item.getItemId();
+
+            switch (mode) {
+                case R.id.navigation_movies:
+                    title = "Movies";
+                    setActionBarTitle(title);
+                    fragment = new MovieFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container_layout, fragment, fragment.getClass().getSimpleName())
+                            .commit();
+
+                    return true;
+                case R.id.navigation_tvshows:
+                    title = "Tv Shows";
+                    setActionBarTitle(title);
+                    fragment = new TvShowFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container_layout, fragment, fragment.getClass().getSimpleName())
+                            .commit();
+                    return true;
+            }
+
+            return false;
+        }
+    };
+
+    public void setMode(int selectedMode){
+        Fragment fragment;
+        switch (selectedMode){
+            case R.id.navigation_movies:
+                title = "Movies";
+                fragment = new MovieFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container_layout, fragment, fragment.getClass().getSimpleName())
+                        .commit();
+                break;
+            case R.id.navigation_tvshows:
+                title = "Tv Shows";
+                fragment = new TvShowFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container_layout, fragment, fragment.getClass().getSimpleName())
+                        .commit();
+                break;
+        }
+        mode = selectedMode;
+        setActionBarTitle(title);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        adapter = new MovieAdapter(this);
-
-        ListView listView = findViewById(R.id.lv_movie_list);
-        listView.setAdapter(adapter);
-
-        prepare();
-        addItem();
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent moveWithObjectIntent = new Intent(MainActivity.this, MovieActivity.class);
-                Movie movie = new Movie();
-                movie.setTitle(dataName[position]);
-                movie.setDescription(dataDescription[position]);
-                movie.setDate(dataReleaseDate[position]);
-                movie.setPhoto(dataPhoto.getResourceId(position, -1));
-                Log.d("MOVIE_ITEM", "intent_setPhoto: " + dataPhoto.getResourceId(position, -1));
-                moveWithObjectIntent.putExtra(MovieActivity.MOVIE_PARCELABLE, movie);
-                startActivity(moveWithObjectIntent);
-Toast.makeText(MainActivity.this, movies.get(position).getTitle(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-    }
-
-    private void prepare() {
-        dataName = getResources().getStringArray(R.array.data_Name);
-        Log.d("PREPARE", "prepare dataName: " + dataName);
-        dataDescription = getResources().getStringArray(R.array.data_Description);
-        Log.d("PREPARE", "prepare dataDescription: " + dataDescription);
-        dataPhoto = getResources().obtainTypedArray(R.array.data_Photo);
-        Log.d("PREPARE", "prepare dataPhoto: " + dataPhoto);
-        dataReleaseDate = getResources().getStringArray(R.array.data_date);
-    }
-    private void addItem(){
-        movies = new ArrayList<>();
-
-        for(int i = 0; i < dataName.length; i++){
-            Movie movie = new Movie();
-            movie.setPhoto(dataPhoto.getResourceId(i, -1));
-            Log.d("MOVIE_ITEM", "lv_setPhoto: " + dataPhoto.getResourceId(i, -1));
-            movie.setTitle(dataName[i]);
-            movie.setDescription(dataDescription[i]);
-            movie.setDate(dataReleaseDate[i]);
-            Log.d("ADDITEM", "addItem: " + movie);
-            movies.add(movie);
+        setContentView(R.layout.activity_bottom_layout);
+        BottomNavigationView navView = findViewById(R.id.navigation);
+        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        int stateMode;
+        if(savedInstanceState == null){
+            setActionBarTitle(title);
+            stateMode = R.id.navigation_movies;
+            setMode(stateMode);
+        } else {
+            title = savedInstanceState.getString(STATE_TITLE);
+            setActionBarTitle(title);
+            stateMode = savedInstanceState.getInt(STATE_MODE);
+            setMode(stateMode);
         }
-        adapter.setMovies(movies);
+    }
+
+    private void setActionBarTitle(String title){
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putString(STATE_TITLE, title);
+        Log.d("STATE_TITLE", "onSaveInstanceState: "+title);
+        outState.putInt(STATE_MODE, mode);
+        Log.d("STATE_MODE", "onSaveInstanceState: "+mode);
     }
 }
-*/
