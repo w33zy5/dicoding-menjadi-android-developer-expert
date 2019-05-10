@@ -44,14 +44,14 @@ public class MovieFragment extends Fragment {
         rvMovieCategory = view.findViewById(R.id.rv_movie);
         rvMovieCategory.setHasFixedSize(true);
 
-        LoadItem();
-        AddItem();
         showRecyclerList();
+        loadItem();
+        addItem();
 
         return view;
     }
 
-    private void LoadItem() {
+    private void loadItem() {
         dataName = getResources().getStringArray(R.array.data_Name);
         Log.d("PREPARE", "prepare dataName: " + dataName);
         dataDescription = getResources().getStringArray(R.array.data_Description);
@@ -60,7 +60,7 @@ public class MovieFragment extends Fragment {
         Log.d("PREPARE", "prepare dataPhoto: " + dataPhoto);
         dataReleaseDate = getResources().getStringArray(R.array.data_date);
     }
-    private void AddItem(){
+    private void addItem(){
         movieList = new ArrayList<>();
 
         for(int i = 0; i < dataName.length; i++){
@@ -73,6 +73,7 @@ public class MovieFragment extends Fragment {
             Log.d("ADDITEM", "addItem: " + movie);
             movieList.add(movie);
         }
+
         rvListMovieAdapter.setListMovie(movieList);
     }
 

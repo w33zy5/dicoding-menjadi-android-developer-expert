@@ -45,7 +45,6 @@ public class RvListMovieAdapter extends RecyclerView.Adapter<RvListMovieAdapter.
 
         Glide.with(context)
                 .load(getListMovie().get(position).getPhoto())
-                .apply(new RequestOptions().override(55, 55))
                 .into(categoryViewHolder.imgPhoto);
     }
 
